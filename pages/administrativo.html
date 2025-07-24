@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/administrativo.css">
+</head>
+<body class="fundo-pagina">
+
+<header>
+    <h1>Painel Administrativo</h1>
+    <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+    <nav id="dropdown-menu" class="menu-dropdown">
+      <ul class="navbar">
+        <li><a href="alunos.html">👨‍🎓 Alunos</a></li>
+        <li><a href="boletins.html">📄 Boletins</a></li>
+        <li><a href="professores.html">👨‍🏫 Professores</a></li>
+        <li><a href="secretaria.html">🏢 Secretaria</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <main>
+       <section>
+    <h2>Estatísticas da Escola</h2>
+    <p>Este painel exibe as estatísticas gerais da escola, incluindo o número total de alunos, professores e eventos agendados.</p>
+    <button id="carregarEstatisticas">Carregar Estatísticas</button>
+</section>
+
+<section id="estatisticas" style="display: none;">
+    <h3>Dados Gerais</h3>
+    <p id="estatisticasCarregadas" style="display: none;">Estatísticas carregadas com sucesso!</p>
+    <p id="estatisticasErro" style="display: none; color: red;">Erro ao carregar estatísticas.</p>
+    <p>Total de Turmas: <span id="totalTurmas"></span></p>
+    <p>Total de Alunos: <span id="totalAlunos"></span></p>
+    <p>Total de Professores: <span id="totalProfessores"></span></p>
+    <p>Eventos Agendados: <span id="totalEventos"></span></p>
+</section>
+
+        
+
+        <section>
+            <h2>Gerenciar Usuários</h2>
+            <p>Adicione, edite ou remova usuários do sistema.</p>
+            <button id="gerenciarUsuarios">Gerenciar Usuários</button>
+        </section>
+
+        <section>
+            <h2>Configurações do Sistema</h2>
+            <p>Configure as opções gerais do sistema, como temas e notificações.</p>
+            <button id="configuracoesSistema">Configurações do Sistema</button>
+        </section>
+
+        <section>
+            <h2>Relatórios</h2>
+            <p>Gere relatórios sobre o desempenho acadêmico e administrativo da escola.</p>
+            <button id="gerarRelatorios">Gerar Relatórios</button>
+        </section>
+        <section>
+            <h2>Suporte Técnico</h2>
+            <p>Entre em contato com o suporte técnico para resolver problemas ou tirar dúvidas.</p>
+            <button id="suporteTecnico">Suporte Técnico</button>
+        </section>
+        <section>
+            <h2>Feedback dos Usuários</h2>
+            <p>Visualize e responda ao feedback dos usuários do sistema.</p>
+            <button id="feedbackUsuarios">Feedback dos Usuários</button>
+        </section>
+        <section>
+            <h2>Histórico de Acesso</h2>
+            <p>Visualize o histórico de acesso dos usuários ao sistema.</p>
+            <button id="historicoAcesso">Histórico de Acesso</button>
+        </section>
+        <section>
+            <h2>Gerenciar Eventos</h2>
+            <p>Adicione, edite ou remova eventos escolares, como reuniões e atividades extracurriculares.</p>
+            <button id="gerenciarEventos">Gerenciar Eventos</button>
+
+    </main>
+    
+        <button id="voltar">Voltar</button>
+
+        <div>
+<script>
+    function voltarParaLobby() {
+        window.location.href = "index.html"; // 
+    }
+</script>
+<button class="botao-lobby-redondo" onclick="voltarParaLobby()" title="Voltar ao Início">
+    <img src="../assets/img/Lobby.webp" alt="Início" class="icone-lobby">
+</button>
+</div>
+        <p>&copy; 2025 Gestão Escolar</p>
+
+    <script src="../js/administrativo.js"></script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro de Alunos</title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/alunos.css" />
+    
+</head>
+<body class="fundo-pagina">
+     
+
+ <div class="lista-container">
+    
+  <div id="filtroContainer">
+    <input type="text" id="filtroAluno" placeholder="Buscar por nome ou matrícula" />
+    <button id="buscarAlunos" type="button">Buscar Alunos</button>
+  </div>
+  <ul id="listaAlunos"></ul>
+</div>
+
+
+    <form id="formAluno" class="container">
+        <label for="nome">Nome do Aluno:</label>
+        <input type="text" id="nome" required />
+
+        <label for="matricula">Matrícula:</label>
+        <input type="text" id="matricula" required />
+
+        <label for="serie">Série:</label>
+        <input type="text" id="serie" required />
+
+        <label for="ano">Ano:</label>
+        <input type="number" id="ano" required min="2000" max="2100" />
+
+        <h3>Disciplinas</h3>
+        <label for="disciplinas">Selecione as Disciplinas:</label>
+        <select id="disciplinas" multiple required>
+            <option value="Educação Física">Educação Física</option>
+            <option value="História">História</option>
+            <option value="Geografia">Geografia</option>
+            <option value="Ciências">Ciências</option>
+            <option value="Artes">Artes</option>
+            <option value="Inglês">Inglês</option>
+            <option value="Matemática">Matemática</option>
+            <option value="Português">Português</option>
+            <option value="Educação Religiosa">Educação Religiosa</option>
+            <option value="Língua Estrangeira">Língua Estrangeira</option>
+        </select>
+
+        <label for="dataNascimento">Data de Nascimento:</label>
+        <input type="date" id="dataNascimento" required />
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required />
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" required />
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" required />
+
+        <label for="responsavel">Nome do Responsável:</label>
+        <input type="text" id="responsavel" required />
+
+        <label for="telefoneResponsavel">Telefone do Responsável:</label>
+        <input type="tel" id="telefoneResponsavel" required />
+
+        <label for="turma">Turma:</label>
+        <select id="turma">
+            <option value="1A">1º Ano Fundamental A</option>
+            <option value="2B">2º Ano Fundamental B</option>
+            <option value="3C">3º Ano Fundamental C</option>
+            <option value="4D">4º Ano Fundamental D</option>
+            <option value="5E">5º Ano Fundamental E</option>
+            <option value="6F">6º Ano Fundamental F</option>
+            <option value="7G">7º Ano Fundamental G</option>
+            <option value="8H">8º Ano Fundamental H</option>
+            <option value="9I">9º Ano Fundamental I</option>
+
+            <option value="EM1">1º Ano Ensino Médio L</option>
+            <option value="EM2">2º Ano Ensino Médio M</option>
+            <option value="EM3">3º Ano Ensino Médio N</option>
+            
+            <option value="ET1">1º Ano Ensino Técnico O</option>
+            <option value="ET2">2º Ano Ensino Técnico P</option>
+            <option value="ET3">3º Ano Ensino Técnico Q</option>
+            
+            <option value="ES1">1º Ano Ensino Superior R</option>
+            <option value="ES2">2º Ano Ensino Superior S</option>
+            <option value="ES3">3º Ano Ensino Superior T</option>
+            
+            <option value="PG1">1º Ano Pós-Graduação U</option>
+            <option value="PG2">2º Ano Pós-Graduação V</option>
+            <option value="PG3">3º Ano Pós-Graduação W</option>
+
+            <option value="EI1">1º Ano Educação Infantil X</option>
+            <option value="EI2">2º Ano Educação Infantil Y</option>
+            <option value="EI3">3º Ano Educação Infantil Z</option>
+
+            <option value="EE1">1º Ano Educação Especial AA</option>
+            <option value="EE2">2º Ano Educação Especial AB</option>
+            <option value="EE3">3º Ano Educação Especial AC</option>
+        </select>
+
+        <div>
+            <button class="botao-lobby-redondo" onclick="voltarParaLobby()" title="Voltar ao Início" type="button">
+                <img src="../assets/img/Lobby.webp" alt="Início" class="icone-lobby" />
+            </button>
+        </div>
+
+        <div class="botoes-acoes">
+            <button type="submit">Cadastrar</button>
+            
+        </div>
+    </form>
+
+    <footer>
+     <button id="voltar" onclick="voltarParaLobby()">Voltar</button>
+
+      <p>&copy; 2025 Gestão Escolar</p>
+  </footer>
+
+   
+    <script>
+        function voltarParaLobby() {
+            window.location.href = "index.html"; 
+        }
+    </script>
+<script src="../js/alunos.js"></script>
+
+
+</body>
+</html>

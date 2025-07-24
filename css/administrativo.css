@@ -1,0 +1,292 @@
+/* Estilo geral */
+body.fundo-pagina {
+  background-color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #1976d2;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+header h1 {
+  margin: 0;
+  color: #fff;
+  font-size: 2em;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #2196f3;
+  padding: 8px 15px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #1485e1;
+}
+
+/* Layout principal com painéis lado a lado */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Seções com efeito vidro */
+main section {
+  flex: 1 1 300px;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.042);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.078);
+}
+
+section h2 {
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+section p {
+  margin-bottom: 15px;
+}
+
+/* Botões */
+button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #155a9c;
+  transform: scale(1.05);
+}
+
+/* Botão voltar */
+#voltar {
+  background-color: #2196f3;
+  margin-top: 30px;
+}
+
+#voltar:hover {
+  background-color: #158ae9;
+}
+
+/* Ícone do lobby flutuante */
+.botao-lobby-redondo {
+  background-color: #1976d2;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.7);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.botao-lobby-redondo:hover {
+  background-color: #155a9c;
+  transform: scale(1.1);
+}
+
+.icone-lobby {
+  width: 35px;
+  height: 35px;
+}
+
+#estatisticas p {
+  margin: 5px 0;
+}
+
+/* ----------------------------
+   📱 Responsividade Mobile
+   ---------------------------- */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav ul li a {
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+
+  main section {
+    flex: 1 1 100%;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  section h2 {
+    font-size: 1.3em;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .botao-lobby-redondo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .icone-lobby {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3em;
+  }
+
+  nav ul li a {
+    font-size: 0.95em;
+  }
+
+  section h2 {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.95em;
+  }
+}
+
+@media (max-width: 344px) {
+  header h1 {
+    font-size: 1.3em;
+  }
+
+  nav ul li a {
+    font-size: 0.95em;
+  }
+
+  section h2 {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 0.95em;
+  }
+}
+@media (max-width: 768px) {
+  button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  #voltar {
+    width: auto;
+    padding: 10px 20px;
+    font-size: 1em;
+  }
+}
+
+
+/* === MENU HAMBÚRGUER === */
+.menu-toggle {
+  display: flex;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0;
+}
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1565c0; 
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-menu ul {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu ul li a {
+    background-color: #2196f3;
+    padding: 10px 20px;
+    border-radius: 20px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .nav-menu ul li a:hover {
+    background-color: #1485e1;
+  }
+}
