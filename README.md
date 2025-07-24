@@ -112,3 +112,4 @@ O projeto consiste na criação de um sistema para gestão escolar, com páginas
 Este README serve como guia para organização, desenvolvimento e documentação do seu projeto. Não esqueça de comentar seu código e manter a estrutura dos arquivos clara e modular!
 
 **Boa programação! 🚀**
+# Gest-o-Escolar
