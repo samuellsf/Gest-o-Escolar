@@ -1,19 +1,17 @@
-// Função para voltar para a página inicial
 function voltarParaLobby() {
   window.location.href = "index.html";
 }
 
-// Aguarda o carregamento completo do DOM
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("menu");
 
-  // Se os elementos existirem, adiciona a funcionalidade
-  if (toggle && menu) {
-    toggle.addEventListener("click", function () {
-      const isVisible = menu.style.display === "block";
-      menu.style.display = isVisible ? "none" : "block";
-      menu.classList.toggle("menu-aberto", !isVisible);
-    });
-  }
+  if (!toggle || !menu) return;
+
+  // Remove o atributo hidden para que o menu possa ser animado e mostrado
+  menu.removeAttribute("hidden");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("menu-aberto");
+  });
 });
