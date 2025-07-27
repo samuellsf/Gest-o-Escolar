@@ -1,0 +1,278 @@
+body.fundo-pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.container-login {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    text-align: left;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+}
+
+.botao-principal {
+    padding: 12px;
+    background-color: #1976d2;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.botao-principal:hover {
+    background-color: #135ba1;
+}
+
+.acoes-secundarias {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.acoes-secundarias button {
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.acoes-secundarias button:hover {
+    background-color: #666;
+}
+
+#mensagemErro {
+    color: red;
+    margin-top: 15px;
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer button {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: none;
+    background-color: #0303b1;
+    color: white;
+    cursor: pointer;
+}
+
+footer button:hover {
+    background-color: #021d87;
+}
+
+#cadastro-section {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+    margin-top: 20px; 
+    color: white;
+    text-align: left;
+}
+
+#cadastro-section label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+#cadastro-section input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+#cadastro-section .botao-principal {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.botao-secundario {
+    margin-top: 10px;
+    background-color: #777;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.botao-secundario:hover {
+    background-color: #555;
+}
+
+
+#mensagemCadastro {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#alterar-senha-section {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    width: 90%;
+    margin-top: 20px; 
+    color: white;
+    text-align: left;
+}
+
+#alterar-senha-section label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+#alterar-senha-section input {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+#alterar-senha-section .botao-principal {
+    margin-top: 20px;
+    width: 100%;
+}
+
+#alterar-senha-section .botao-secundario {
+    margin-top: 10px;
+    background-color: #777;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#alterar-senha-section .botao-secundario:hover {
+    background-color: #555;
+}
+
+#mensagemAlterarSenha {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #alterar-senha-section {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    #alterar-senha-section label,
+    #alterar-senha-section input,
+    #alterar-senha-section .botao-principal,
+    #alterar-senha-section .botao-secundario {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #cadastro-section {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    #cadastro-section label {
+        font-size: 14px;
+    }
+
+    #cadastro-section input,
+    #cadastro-section .botao-principal,
+    .botao-secundario {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-login {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    .botao-principal,
+    .acoes-secundarias button,
+    footer button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .acoes-secundarias {
+        gap: 8px;
+    }
+}

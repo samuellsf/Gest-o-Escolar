@@ -156,5 +156,5 @@ function excluirProfessor(index) {
   }
 }
 function voltarParaLobby() {
-  window.location.href = "index.html";
+  window.location.href = "  ../index.html";
 }

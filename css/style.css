@@ -34,7 +34,7 @@ body.fundo-pagina > * {
 header {
     background-color: #1976d2;
     color: white;
-    padding: 30px;
+    padding: 18px;
     position: relative;
 }
 
@@ -59,22 +59,48 @@ header h1 {
 }
 
 /* === MENU DE NAVEGAÇÃO COM ANIMAÇÃO === */
-/* Menu começa oculto com max-height 0 e sem padding */
 nav#menu {
   max-height: 0;
   overflow: hidden;
   background-color: #1565c0;
-  padding: 0 10px;
+  padding: 0 20px;
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
 
-/* Quando o menu estiver aberto */
 nav#menu.menu-aberto {
-  max-height: 500px; /* ajuste se precisar mais */
-  padding: 10px 10px;
+  height: 100vh; 
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #cccccc #1565c0;
 }
 
-/* Estilo do UL dentro do menu aberto */
+/* Ajustar o ul com a imagem */
+nav#menu.menu-aberto ul {
+
+  height:100%;
+  background-image: url('../assets/img/Fund_Gestão_Escolar.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+   background-attachment: fixed;
+}
+
+/* Estilo opcional para scroll no Chrome */
+nav#menu.menu-aberto::-webkit-scrollbar {
+  width: 6px;
+}
+
+nav#menu.menu-aberto::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+nav#menu.menu-aberto::-webkit-scrollbar-track {
+  background-color: #1565c0;
+}
+
 nav#menu.menu-aberto ul {
     background-image: url('../assets/img/Fund_Gestão_Escolar.jpg');
     background-size: contain;
@@ -83,7 +109,6 @@ nav#menu.menu-aberto ul {
     background-attachment: fixed;
 }
 
-/* Garantir que hidden não esconda o menu (JS vai remover ele, mas só pra garantir) */
 nav#menu[hidden] {
   display: block !important;
   max-height: 0 !important;
@@ -91,15 +116,13 @@ nav#menu[hidden] {
   overflow: hidden !important;
 }
 
-/* Links e estilo do menu (exemplo simplificado) */
-nav#menu ul {
-  list-style: none;
-  padding-left: 20px;
-  margin: 0;
-}
-
-nav#menu li {
-  margin: 10px 0;
+nav#menu ul li {
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  padding: 8px;
+  margin: 20px 0;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 nav#menu a {
@@ -185,6 +208,7 @@ footer {
     font-family: 'Playfair Display', serif;
 }
 
+
 /* === RESPONSIVO === */
 @media (max-width: 768px) {
     header h1 {
@@ -205,4 +229,60 @@ footer {
         width: 24px;
         height: 24px;
     }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #menu-toggle {
+        font-size: 1.5rem;
+        top: 5px;
+        left: 5px;
+    }
+
+    .botao-lobby-redondo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icone-lobby {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 1rem;
+    }
+
+    #menu-toggle {
+        font-size: 1.2rem;
+        top: 5px;
+        left: 5px;
+    }
+
+    .botao-lobby-redondo {
+        width: 35px;
+        height: 35px;
+    }
+
+    .icone-lobby {
+        width: 18px;
+        height: 18px;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+}
+/* === ANIMAÇÃO DE TRANSIÇÃO PARA O MENU === */
+nav#menu {
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+nav#menu.menu-aberto {
+    max-height: 500px; /* ajuste se precisar mais */
+    padding: 10px 10px;
 }

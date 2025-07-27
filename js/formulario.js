@@ -100,7 +100,7 @@ function atualizarListaMensagens() {
   });
 }
 function voltarParaLobby() {
-    window.location.href = "../pages/index.html"; 
+    window.location.href = "../index.html"; 
 }
 
 

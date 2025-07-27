@@ -172,10 +172,8 @@ buscarAlunosBtn.addEventListener('click', function () {
 
 });
 
-// Carrega lista automaticamente ao carregar página
 document.addEventListener('DOMContentLoaded', listarAlunos);
 
-// Torna as funções editar/remover globais para uso no onclick inline
 window.editarAluno = editarAluno;
 window.removerAluno = removerAluno;
 // Botão Voltar
