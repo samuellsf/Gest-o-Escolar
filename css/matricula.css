@@ -1,10 +1,10 @@
 /* Base - Mobile First */
 body.fundo-pagina {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: #333fff;
     padding: 10px;
     margin: 0;
-    color: #333;
+    color: #;
 }
 
 .titulo-central {
@@ -24,7 +24,7 @@ form {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px #ccc;
-    width: 100%;
+    width: 85%;
     max-width: 500px;
     margin: auto;
 }
@@ -97,6 +97,27 @@ button:hover,
 .container-matriculados .bolha:hover {
     transform: scale(1.05);
 }
+
+.toast {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 10px 16px;
+  margin: 8px auto;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  width: fit-content;
+  max-width: 90%;
+  font-size: 15px;
+  animation: fadeInOut 4s ease-in-out;
+  text-align: center;
+}
+
+@keyframes fadeInOut {
+  0% {opacity: 0; transform: translateY(20px);}
+  10%, 90% {opacity: 1; transform: translateY(0);}
+  100% {opacity: 0; transform: translateY(-20px);}
+}
+
 
 /* Responsivo para tablets e desktops */
 @media screen and (min-width: 600px) {
