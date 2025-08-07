@@ -1,13 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
+  
+  console.log("boletins.js carregado com sucesso!");
+
   const form = document.getElementById("formBoletim");
   const lista = document.getElementById("listaBoletins");
   const voltarBtn = document.getElementById("voltar");
   const toggleBtn = document.getElementById("menu-toggle");
   const navbar = document.getElementById("navbar");
 
-  const listarBtn = document.getElementById("listarBoletins");
-  const buscarBtn = document.getElementById("buscarBoletim");
-  const removerBtn = document.getElementById("removerBoletim");
+const listarBtn = document.getElementById("listarBoletins");
+const buscarBtn = document.getElementById("buscarBoletim");
+const removerBtn = document.getElementById("removerBoletim");
+
 
   const boletins = [];
 
@@ -53,7 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  
   listarBtn.addEventListener("click", function () {
     lista.innerHTML = "";
     boletins.forEach(b => {
@@ -61,44 +64,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-
   buscarBtn.addEventListener("click", function () {
-    const nome = prompt("Digite o nome do aluno para buscar:").toLowerCase();
+    const nome = prompt("Digite o nome do aluno para buscar:");
     if (!nome) return;
 
-    lista.innerHTML = "";
-    boletins
-      .filter(b => b.aluno.toLowerCase().includes(nome))
-      .forEach(b => {
-        lista.appendChild(criarBoletimItem(b));
-      });
+    const nomeLower = nome.toLowerCase();
 
-    if (lista.childNodes.length === 0) {
+    lista.innerHTML = "";
+    const encontrados = boletins.filter(b => b.aluno.toLowerCase().includes(nomeLower));
+    encontrados.forEach(b => {
+      lista.appendChild(criarBoletimItem(b));
+    });
+
+    if (encontrados.length === 0) {
       lista.innerHTML = `<li class="boletim-bolha">Nenhum boletim encontrado.</li>`;
     }
   });
 
   removerBtn.addEventListener("click", function () {
-    const nome = prompt("Digite o nome do aluno a remover:").toLowerCase();
+    const nome = prompt("Digite o nome do aluno a remover:");
     if (!nome) return;
 
-    const removidos = boletins.filter(b => b.aluno.toLowerCase() === nome);
+    const nomeLower = nome.toLowerCase();
+
+    const removidos = boletins.filter(b => b.aluno.toLowerCase() === nomeLower);
     if (removidos.length === 0) {
       alert("Nenhum boletim encontrado com esse nome.");
       return;
     }
 
-    
     for (let i = boletins.length - 1; i >= 0; i--) {
-      if (boletins[i].aluno.toLowerCase() === nome) {
+      if (boletins[i].aluno.toLowerCase() === nomeLower) {
         boletins.splice(i, 1);
       }
     }
 
-    listarBtn.click(); 
+    listarBtn.click();
   });
 
-  
   if (voltarBtn) {
     voltarBtn.addEventListener("click", function () {
       if (window.history.length > 1) {
@@ -109,20 +112,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  
   if (toggleBtn && navbar) {
     toggleBtn.addEventListener("click", () => {
-      navbar.classList.toggle("open");
+      navbar.classList.toggle("menu-aberto");
+      navbar.classList.toggle("menu-fechado");
     });
   }
-});
-
- document.addEventListener("DOMContentLoaded", function () {
-  const menuToggle = document.getElementById("menu-toggle");
-  const navbar = document.getElementById("navbar");
-
-  menuToggle.addEventListener("click", function () {
-    navbar.classList.toggle("menu-aberto");
-    navbar.classList.toggle("menu-fechado");
-  });
 });

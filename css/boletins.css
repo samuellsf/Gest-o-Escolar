@@ -10,7 +10,7 @@ body.fundo-pagina {
 /* Cabeçalho */
 header {
   background-color: #1976d2;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
   margin-bottom: 20px;
   text-align: center;
@@ -22,7 +22,7 @@ header {
 header h1 {
   margin: 0;
   color: #fff;
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 /* Menu hamburguer */
@@ -77,6 +77,10 @@ nav {
 
 .navbar.open {
   display: flex;
+}
+.navbar {
+  transition: max-height 0.3s ease;
+  overflow: hidden;
 }
 
 .navbar li {
@@ -162,6 +166,15 @@ form select {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+.botoes-form button:focus,
+#voltar:focus,
+.remove-btn:focus {
+  outline: 2px solid #1976d2;
+  outline-offset: 2px;
+}
+.remove-btn:hover {
+  color: #ff6961; 
 }
 
 .botoes-form button {
