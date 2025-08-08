@@ -1,0 +1,230 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo geral */
+body.fundo-pagina {
+  background-color: #1a1a1a;
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #ffffff;
+}
+
+/* Cabeçalho */
+header {
+  background-color: #0d08a6;
+  padding: 1.5rem 2rem;
+  color: #ecf0f1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.25s ease-in-out;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: #0d08a6;
+  outline: none;
+}
+
+/* Main content */
+main {
+  max-width: 900px;
+  width: 90%;
+  margin: 2rem auto;
+  flex-grow: 1;
+}
+
+/* Seções */
+section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+/* Botões gerais */
+button {
+  background-color: #0d08a6;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: #0d08a6;
+  outline: none;
+}
+
+/* Botão buscar alunos */
+#buscarAlunos {
+  font-size: 1.1rem;
+}
+
+/* Lista de alunos */
+ul#listaAlunos {
+  list-style: disc inside;
+  margin-top: 1rem;
+  color: #34495e;
+  font-weight: 600;
+}
+
+ul#listaAlunos li {
+  padding: 0.3rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Formulário */
+form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+form input[type="email"],
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  margin-top: 0.25rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+  resize: vertical;
+}
+
+form input[type="email"]:focus,
+form input[type="text"]:focus,
+form textarea:focus {
+  border-color: #0d08a6;
+  outline: none;
+}
+
+/* Textarea específica */
+textarea#mensagem {
+  min-height: 120px;
+}
+
+/* Footer */
+footer {
+  background-color: #0d08a6;
+  color: #ecf0f1;
+  text-align: center;
+  padding: 1.25rem 2rem;
+  position: relative;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Botão voltar - canto superior direito */
+.botao-lobby-redondo {
+  position: flex;
+  top: 1rem;
+  right: 1rem;
+  background-color: #0d08a6;
+  border-radius: 50%;
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000; 
+  transition: background-color 0.3s ease;
+}
+
+.botao-lobby-redondo:hover,
+.botao-lobby-redondo:focus {
+  background-color: #120af4;
+  outline: none;
+}
+
+.botao-lobby-redondo img.icone-lobby {
+  width: 26px;
+  height: 26px;
+}
+
+.botao-lobby-redondo {
+  position: absolute;
+  left: 1.5rem;
+  top: 20%;
+  transform: translateY(-20%);
+  background-color: #0d08a6;
+  border-radius: 50%;
+  border: none;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .botao-lobby-redondo {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    transform: none;
+    z-index: 1000;
+  }
+}
+
+/* Responsividade */
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  main {
+    width: 95%;
+  }
+  .botao-lobby-redondo {
+    position: static;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}

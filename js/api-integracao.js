@@ -1,77 +1,79 @@
-// Simulação de consulta a uma API de alunos e exibição na página
-async function buscarAlunos() {
-    try {
-        const response = await fetch("https://api.exemplo.com/alunos"); // URL fictícia
-        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
+// api-integracao.js
 
-        const dados = await response.json();
+document.addEventListener('DOMContentLoaded', () => {
+    const btnBuscarAlunos = document.getElementById('buscarAlunos');
+    const listaAlunos = document.getElementById('listaAlunos');
+    const formEmail = document.getElementById('formEmail');
 
-        const listaAlunos = document.getElementById("listaAlunos"); // Pegando o elemento HTML da lista
+    // === CONFIGURAÇÃO ===
+    const API_BASE_URL = 'http://localhost:3000'; // Altere para sua API real 
 
-        listaAlunos.innerHTML = ""; // Limpa a lista antes de adicionar novos itens
+    // === BUSCAR ALUNOS ===
+    btnBuscarAlunos.addEventListener('click', async () => {
+        listaAlunos.innerHTML = '<li>Carregando alunos...</li>';
 
-        dados.forEach(aluno => {
-            const li = document.createElement("li");
-            li.textContent = `${aluno.nome} - Matrícula: ${aluno.matricula}`;
-            listaAlunos.appendChild(li); // Adiciona aluno à lista
-        });
+        try {
+            const response = await fetch(`${API_BASE_URL}/alunos`);
+            if (!response.ok) throw new Error('Erro ao buscar alunos');
 
-    } catch (error) {
-        console.error("Erro ao buscar alunos:", error.message);
-    }
-}
+            const alunos = await response.json();
+            listaAlunos.innerHTML = ''; // Limpa a lista
 
-// Adicionando evento ao botão
-document.getElementById("buscarAlunos").addEventListener("click", buscarAlunos);
-
-
-// Simulação de envio de e-mail via API externa
-async function enviarEmail(destinatario, assunto, mensagem) {
-    try {
-        const response = await fetch("https://api.exemplo.com/email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ destinatario, assunto, mensagem })
-        });
-
-        if (response.ok) {
-            console.log("E-mail enviado com sucesso para:", destinatario);
-        } else {
-            console.error("Falha ao enviar e-mail.");
-        }
-    } catch (error) {
-        console.error("Erro ao enviar e-mail:", error);
-    }
-}
-
-// Simulação de API de geolocalização de escolas
-async function buscarEscolasPorLocalizacao(lat, lon) {
-    try {
-        const response = await fetch(`https://api.exemplo.com/escolas?lat=${lat}&lon=${lon}`);
-        const dados = await response.json();
-        console.log("Escolas próximas:", dados);
-    } catch (error) {
-        console.error("Erro ao buscar escolas:", error);
-    }
-}
-
-// Chamadas simuladas
-buscarAlunos();
-enviarEmail("exemplo@escola.com", "Aviso Escolar", "Olá, segue seu boletim atualizado.");
-buscarEscolasPorLocalizacao(-15.7801, -47.9292);
-document.addEventListener("DOMContentLoaded", function() {
-    const botaoVoltar = document.getElementById("voltar");
-
-    if (botaoVoltar) {
-        botaoVoltar.addEventListener("click", function() {
-            if (window.history.length > 1) {
-                window.history.back(); // Volta para a página anterior
-            } else {
-                window.location.href = "../index.html"; // Caso não tenha histórico, retorna à página inicial
+            if (alunos.length === 0) {
+                listaAlunos.innerHTML = '<li>Nenhum aluno encontrado.</li>';
+                return;
             }
-        });
-    }
+
+            alunos.forEach(aluno => {
+                const li = document.createElement('li');
+                li.textContent = `${aluno.nome} - ${aluno.matricula}`;
+                listaAlunos.appendChild(li);
+            });
+
+        } catch (error) {
+            console.error('Erro ao carregar alunos:', error);
+            listaAlunos.innerHTML = '<li>Erro ao carregar alunos. Tente novamente mais tarde.</li>';
+        }
+    });
+
+    // === ENVIAR E-MAIL ===
+    formEmail.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const assunto = document.getElementById('assunto').value.trim();
+        const mensagem = document.getElementById('mensagem').value.trim();
+
+        if (!email || !assunto || !mensagem) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${API_BASE_URL}/enviar-email`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, assunto, mensagem })
+            });
+
+            if (!response.ok) throw new Error('Erro ao enviar e-mail.');
+
+            const resultado = await response.json();
+            alert('E-mail enviado com sucesso!');
+            formEmail.reset();
+
+        } catch (error) {
+            console.error('Erro ao enviar e-mail:', error);
+            alert('Falha ao enviar o e-mail. Tente novamente mais tarde.');
+        }
+    });
 });
-
-
-
+// Botão "Voltar" simples
+const btnVoltar = document.getElementById('voltar');
+if (btnVoltar) {
+    btnVoltar.addEventListener('click', () => {
+        window.location.href = "../index.html";
+    });
+}
